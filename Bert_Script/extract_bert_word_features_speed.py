@@ -60,6 +60,7 @@ class InputFeatures(object):
         self.input_type_ids = input_type_ids
 
 
+## zida 为了可以使用bert模型，我们将读取到的原始数据通过模型自带的分词进行分词操作并转化为ID，同时得到对应的句子编码，mask编码，词向量编码
 def convert_examples_to_features(examples, seq_length, tokenizer):
     """Loads a data file into a list of `InputBatch`s."""
 
@@ -200,7 +201,7 @@ def _clean_str(string):
     string = re.sub(r"\s{2,}", " ", string)
     return string.strip().lower()
 
-
+##zida  我们需要将原始数据中单词得到对应的bert 模型中的向量，下面这段代码就是为了读取原始数据并转化为为合适的格式
 def read_examples(input_file, max_seq_length):
     """Read a list of `InputExample`s from an input file."""
     examples = []
@@ -387,10 +388,10 @@ if __name__ == "__main__":
     max_seq_length = 60
     batch_size = 2
     bert_dim = 300
-    input = "../Data/sst_binary/stsa.binary-t.test"
-    output = "../sst_bert_features/stsa_binary_test_bert_dim{}.json".format(bert_dim)
-    bert_model = "../bert-base-uncased"
-    vocab = "bert-base-uncased-vocab.txt"
+    input = "./stsa.binary.trai"
+    output = "./stsa_binary_test_bert_dim{}.json".format(bert_dim)
+    bert_model = "/Users/zida/Documents/BERT/bert-base-uncased"
+    vocab = "/Users/zida/Documents/BERT/bert-base-uncased-vocab.txt"
     do_lower_case = True
 
     parser = argparse.ArgumentParser()

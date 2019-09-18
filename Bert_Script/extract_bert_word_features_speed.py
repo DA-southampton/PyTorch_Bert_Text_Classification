@@ -386,7 +386,7 @@ if __name__ == "__main__":
 
     max_seq_length = 60
     batch_size = 2
-    bert_dim = 3
+    bert_dim = 300
     input = "../Data/sst_binary/stsa.binary-t.test"
     output = "../sst_bert_features/stsa_binary_test_bert_dim{}.json".format(bert_dim)
     bert_model = "../bert-base-uncased"
